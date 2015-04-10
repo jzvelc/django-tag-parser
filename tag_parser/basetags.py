@@ -179,8 +179,7 @@ class BaseInclusionNode(BaseNode):
         # Get template nodes, and cache it.
         # Note that self.nodelist has a special meaning in the Node base class.
         if not getattr(self, 'nodelist', None):
-            tpl = get_template(self.get_template_name(*tag_args, **tag_kwargs))
-            self.nodelist = tpl.nodelist
+            self.nodelist = get_template(self.get_template_name(*tag_args, **tag_kwargs))
 
         # Render the node
         data = self.get_context_data(context, *tag_args, **tag_kwargs)
